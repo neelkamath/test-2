@@ -1,5 +1,12 @@
 on:
   workflow_dispatch:
+    inputs:
+      deployment:
+        required: true
+        description: "The AWS deployment to environments: integration, dev, or master (production)"
+        default: integration
+        type: choice
+        options: [integration, dev, master]
 jobs:
     echo:
         runs-on: ubuntu-latest
